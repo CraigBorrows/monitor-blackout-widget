@@ -1,0 +1,16 @@
+{
+    "KPlugin": {
+        "Id": "com.cbo.monitorblackout",
+        "Name": "Monitor Blackout",
+        "Description": "Black out the monitors you're not using — one click per screen, nothing moves",
+        "Authors": [
+            { "Name": "Craig Borrows", "Email": "cbo@nube-io.com" }
+        ],
+        "Category": "System Information",
+        "Icon": "video-display",
+        "License": "MIT",
+        "Version": "1.0"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

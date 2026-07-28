@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name=""/>
+  <group name="General">
+    <!-- JSON map of output name -> brightness to restore. Written whenever a
+         screen is blacked out so a plasmashell crash can't strand a monitor
+         at brightness 0 with the overlay gone. -->
+    <entry name="savedBrightness" type="String">
+      <default></default>
+    </entry>
+    <!-- Drop the backlight to 0 as well as covering the screen. The black
+         window alone leaves the panel lit, which reads as dark grey in a dark
+         room. Costs a DDC/CI round-trip per click. -->
+    <entry name="dimBacklight" type="Bool">
+      <default>true</default>
+    </entry>
+  </group>
+</kcfg>
