@@ -60,10 +60,15 @@ PlasmoidItem {
                 root.loadError = "parse"
             }
         }
-        // Unique source name per run: reconnecting an identical source is a
-        // no-op, which would silently swallow repeat commands.
+        // Distinct source name per run: reconnecting an identical source is a
+        // no-op, which would silently swallow repeat commands. The counter wraps
+        // because Plasma5Support keeps source names in an append-only
+        // QQmlOpenMetaObject and rebuilds the whole metaobject on every
+        // connect/disconnect — an unbounded counter makes each run cost O(runs so
+        // far). This widget only runs on demand, so it never got as bad as the
+        // 3 s pollers, but the growth is the same shape.
         function run(cmd) {
-            root.execSeq += 1
+            root.execSeq = (root.execSeq + 1) % 8
             connectSource(cmd + " # " + root.execSeq)
         }
     }
